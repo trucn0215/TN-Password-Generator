@@ -1,17 +1,16 @@
 // Assignment Code
 //let generateBtn = document.querySelector("#generate");
 
-//array list of numbers
-var nums = [0,1,2,3,4,5,6,7,8,9];
-
+var criteria = {
+  //array list of numbers
+  "nums": "0123456789",
 //array list of lowercase letters
-var lower = "abcdefghijklmnopqrstuvwxyz";
-
+  "lowerChar": "abcdefghijklmnopqrstuvwxyz",
 //array list of UPPERCASE
-var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+  "upperChar": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 //array list of special characters
-charSet = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  "specicalChar": "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+}
 
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
@@ -21,15 +20,16 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
 
   // series of prompt and confirming question for the password
-  var numCon = prompt("How many characters for your password? Enter a number 8 < x > 128");
-  var conLower = confirm("Does it have lower case?");
-  var upperLet = confirm("Does it have UPPER case?");
-  var numb = confirm("do it have lower case?");
-  var specicalChar = confirm("Does it have special case?");
+  var numCon = prompt("How many characters for your password? Enter a number between 8 to 128");
+  var conLower = confirm("Click OK if Password include lower case!");
+  var upperLet = confirm("Click OK if Password include UPPER case!");
+  var numb = confirm("Click OK if Password include numbers!");
+  var specicalChar = confirm("Click OK if Password include special characters!");
 
-  if(numCon <8 || numCon > 128) {
+  if(numCon <=8 || numCon >= 128) {
     alert("Please enter number between 8 to 128!")
   }
+
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
