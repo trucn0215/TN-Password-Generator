@@ -1,32 +1,31 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
-var criteria = {
-  //array list of numbers
-  "nums": "0123456789",
-//array list of lowercase letters
-  "lowerChar": "abcdefghijklmnopqrstuvwxyz",
-//array list of UPPERCASE
-  "upperChar": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-//array list of special characters
-  "specicalChar": "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+// Write password to the #password input
+function writePassword() {
+
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 }
 
-var passwordLength ="";
-var lowercaseConfirm;
-var uppercaseConfirm;
-var numberConfirm;
-var specicalCharConfirm;
-
 function generatePassword(){
-
+  //create variables
+  var numberic = "0123456789";
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var specicalCharacter = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  
   // Prompt the user for a `passwordLength`
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
 
   // Check to making sure the number stay in range from 8 to 128. If not, ALERT user to put a number that in the range
   while(passwordLength <=7 || passwordLength >= 128) {
     alert("Please enter number between 8 to 128!")
-    return passwordLength;
+    var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   }
 
     // series of prompt and confirming question for the password
@@ -37,7 +36,10 @@ function generatePassword(){
 
   while(lowercaseConfirm ==false && uppercaseConfirm == false && numberConfirm == false && specicalCharConfirm == false) {
     alert("Password need at least ONE criteria!");
-    return lowercaseConfirm, uppercaseConfirm, numberConfirm, specicalCharConfirm;
+    var lowercaseConfirm = confirm("Click OK if Password include lower case!");
+    var uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
+    var numberConfirm = confirm("Click OK if Password include numbers!");
+    var specicalCharConfirm = confirm("Click OK if Password include special characters!");
   }
 
   // DECLARE a new list of `characters`
@@ -86,14 +88,3 @@ function generatePassword(){
   //RETURN `password`
   return password;
 }
-// Write password to the #password input
-function writePassword() {
-
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
