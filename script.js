@@ -12,21 +12,28 @@ var criteria = {
   "specicalChar": "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var passwordLength ="";
+var lowercaseConfirm;
+var uppercaseConfirm;
+var numberConfirm;
+var specicalCharConfirm;
 
 function generatePassword(){
 
   // Prompt the user for a `passwordLength`
-  var passwordLength = prompt("Provide a length");
+  var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
 
-  // If NOT (passwordLength >=8 || passwordLength <= 128)
-  // THEN ALERT to the user that they need to provide a correct length
-  // AND EXIT FUNCTION
-  if(numCon <=8 || numCon >= 128) {
+  // Check to making sure the number stay in range from 8 to 128. If not, ALERT user to put a number that in the range
+  while(passwordLength <=7 || passwordLength >= 128) {
     alert("Please enter number between 8 to 128!")
-    return;
+    return passwordLength;
   }
+
+    // series of prompt and confirming question for the password
+    var lowercaseConfirm = confirm("Click OK if Password include lower case!");
+    var uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
+    var numberConfirm = confirm("Click OK if Password include numbers!");
+    var specicalCharConfirm = confirm("Click OK if Password include special characters!");
 
   // DECLARE a new list of `characters`
   var charactersToUse = [];
@@ -57,37 +64,30 @@ function generatePassword(){
   // AND EXIT FUNCTION
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
-  for( var i = 0; i < passwordLength; i++) {
+  // for( var i = 0; i < passwordLength; i++) {
 
-  }
+  // }
 
   // DECLARE a new `password` string
-  var password = "";
+  // var password = "";
 
   // WHILE password.Length < passwordLength
-  while( password.length < passwordLength) {
+  //while( password.length < passwordLength) {
     // SELECT `randomCharacter` a character from `charactersToUse`
     // APPEND `randomCharacter` to `password` string
-  }
+  //}
 
   //RETURN `password`
-  return password;
+  //return password;
 }
 // Write password to the #password input
 function writePassword() {
-
-  // series of prompt and confirming question for the password
-  var numCon = prompt("How many characters for your password? Enter a number between 8 to 128");
-  var conLower = confirm("Click OK if Password include lower case!");
-  var upperLet = confirm("Click OK if Password include UPPER case!");
-  var numb = confirm("Click OK if Password include numbers!");
-  var specicalChar = confirm("Click OK if Password include special characters!");
-
-
-
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
