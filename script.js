@@ -12,7 +12,6 @@ function writePassword() {
   passwordText.value = password;
 }
 
-function generatePassword(){
   //create variables
   var numberic = "0123456789";
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -29,6 +28,8 @@ function generatePassword(){
   var specicalCharConfirm;
 
   var passwordPicking;
+
+function generatePassword(){
 
     // Condition for length input. If input is not valid, give ALERTs!
     if (!passwordLength) {
@@ -103,45 +104,10 @@ function generatePassword(){
   }
 
   // DECLARE a new list of `characters`
-  var charactersToUse = [];
-
-  // CONFIRM if the password generator `isUsingNumbers`
-
-  // IF `isUsingNumber`
-  // THEN push `numbers` into `characterToUse` list
-  // AND APPEND on random number from the `number` list
-  if (numberConfirm == true) {
-    charactersToUse = charactersToUse.concat(nums);
-  }
-
-  // CONFIRM if the password generator `isUsingLowercaseLetter`
-
-  // IF `isUsingLowercaseLetter`
-  // THEN push `lowercaseLetter` into `isUsingLowercaseLetter`
-  if (lowercaseConfirm == true) {
-    charactersToUse = charactersToUse.concat(lowerChar);
-  }
-  // CONFIRM if the password generator `isUsingUppercaseLetter`
-
-  // IF `isUsingUppercaseLetter`
-  // THEN push `uppercaseLetter` into `isUsingUppercaseLetter`
-  if (uppercaseConfirm == true) {
-    charactersToUse = charactersToUse.concat(upperChar);
-  }
-
-  // CONFIRM if the password generator `isUsingSpecialCharactersLetters`
-
-  // IF `isUsingSpecialCharactersLetters`
-  // THEN push `specialCharacters` into `characterToUse` list
-  if (specicalCharConfirm == true) {
-    charactersToUse = charactersToUse.concat(specicalChar);
-  }
-
-  // DECLARE a new `password` string
-  var password = "";
+  var password = [];
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
-  for( var i = 0; i < passwordLength; i++) {
+  for( var i = 0; i < passwordPicking; i++) {
     password = password + charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
   }
 
