@@ -40,52 +40,51 @@ function generatePassword(){
     return lowercaseConfirm, uppercaseConfirm, numberConfirm, specicalCharConfirm;
   }
 
-  console.log(generatePassword);
-
   // DECLARE a new list of `characters`
-  // var charactersToUse = [];
+  var charactersToUse = [];
 
   // CONFIRM if the password generator `isUsingNumbers`
 
   // IF `isUsingNumber`
   // THEN push `numbers` into `characterToUse` list
   // AND APPEND on random number from the `number` list
+  if (numberConfirm == true) {
+    charactersToUse = charactersToUse.concat(nums);
+  }
 
   // CONFIRM if the password generator `isUsingLowercaseLetter`
 
   // IF `isUsingLowercaseLetter`
   // THEN push `lowercaseLetter` into `isUsingLowercaseLetter`
-
+  if (lowercaseConfirm == true) {
+    charactersToUse = charactersToUse.concat(lowerChar);
+  }
   // CONFIRM if the password generator `isUsingUppercaseLetter`
 
   // IF `isUsingUppercaseLetter`
   // THEN push `uppercaseLetter` into `isUsingUppercaseLetter`
+  if (uppercaseConfirm == true) {
+    charactersToUse = charactersToUse.concat(upperChar);
+  }
 
   // CONFIRM if the password generator `isUsingSpecialCharactersLetters`
 
   // IF `isUsingSpecialCharactersLetters`
   // THEN push `specialCharacters` into `characterToUse` list
-  
-  // IF NOT `characterToUse.length`
-  // THEN ALERT to the user that they need to provide a correct length
-  // AND EXIT FUNCTION
-
-  // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
-  // for( var i = 0; i < passwordLength; i++) {
-
-  // }
+  if (specicalCharConfirm == true) {
+    charactersToUse = charactersToUse.concat(specicalChar);
+  }
 
   // DECLARE a new `password` string
-  // var password = "";
+  var password = "";
 
-  // WHILE password.Length < passwordLength
-  // while( password.length < passwordLength) {
-    // SELECT `randomCharacter` a character from `charactersToUse`
-    // APPEND `randomCharacter` to `password` string
-  // }
+  // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
+  for( var i = 0; i < passwordLength; i++) {
+    password = password + charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
+  }
 
   //RETURN `password`
-  // return password;
+  return password;
 }
 // Write password to the #password input
 function writePassword() {
