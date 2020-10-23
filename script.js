@@ -35,8 +35,15 @@ function generatePassword(){
     var numberConfirm = confirm("Click OK if Password include numbers!");
     var specicalCharConfirm = confirm("Click OK if Password include special characters!");
 
+  while(lowercaseConfirm ==false && uppercaseConfirm == false && numberConfirm == false && specicalCharConfirm == false) {
+    alert("Password need at least ONE criteria!");
+    return lowercaseConfirm, uppercaseConfirm, numberConfirm, specicalCharConfirm;
+  }
+
+  console.log(generatePassword);
+
   // DECLARE a new list of `characters`
-  var charactersToUse = [];
+  // var charactersToUse = [];
 
   // CONFIRM if the password generator `isUsingNumbers`
 
@@ -72,13 +79,13 @@ function generatePassword(){
   // var password = "";
 
   // WHILE password.Length < passwordLength
-  //while( password.length < passwordLength) {
+  // while( password.length < passwordLength) {
     // SELECT `randomCharacter` a character from `charactersToUse`
     // APPEND `randomCharacter` to `password` string
-  //}
+  // }
 
   //RETURN `password`
-  //return password;
+  // return password;
 }
 // Write password to the #password input
 function writePassword() {
