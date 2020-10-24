@@ -32,7 +32,7 @@ function generatePassword(){
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   
   while (passwordLength < 8 || passwordLength > 128) {
-    alert ("Please enter a number of Character for your Password!");
+    alert ("Please enter the correct number of Character for your Password!");
     passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   }
 
@@ -45,7 +45,7 @@ function generatePassword(){
   //Confirming user pick criterias that they want password should included
     // NO option picked
     if (!lowercaseConfirm && !uppercaseConfirm && !numberConfirm && !specicalCharConfirm) {
-      passwordPicking = alert("Password need at least ONE criteria!");
+      passwordPicking = alert("Password needs at least ONE criteria!");
 
       lowercaseConfirm = confirm("Click OK if Password include lower case!");
       uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
