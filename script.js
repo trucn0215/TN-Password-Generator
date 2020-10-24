@@ -1,6 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+ // Add event listener to generate button
+ generateBtn.addEventListener("click", writePassword);
+
 // Write password to the #password input
 function writePassword() {
 
@@ -10,23 +13,22 @@ function writePassword() {
   passwordText.value = password;
 }
 
+//console.log(writePassword);
+
   //create variables
   var numberic = ["0","1","2","3","4","5","6","7","8","9"];
   var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var specicalCharacter = ["!","\\","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~","\""];
-  
-  // Prompt the user for a `passwordLength`
+  var passwordPicking = [];
+
+function generatePassword(){
 
   // Comfirming variables
   var lowercaseConfirm;
   var uppercaseConfirm;
   var numberConfirm;
   var specicalCharConfirm;
-
-  var passwordPicking= "";
-
-function generatePassword(){
 
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   
@@ -40,11 +42,12 @@ function generatePassword(){
   numberConfirm = confirm("Click OK if Password include numbers!");
   specicalCharConfirm = confirm("Click OK if Password include special characters!");
 
-  while (true) {
+  // while (true) {
+
     // NO option picked
     if (!lowercaseConfirm && !uppercaseConfirm && !numberConfirm && !specicalCharConfirm) {
       passwordPicking = alert("Password need at least ONE criteria!");
-      
+
       lowercaseConfirm = confirm("Click OK if Password include lower case!");
       uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
       numberConfirm = confirm("Click OK if Password include numbers!");
@@ -99,24 +102,26 @@ function generatePassword(){
     else if (numberConfirm) {
       passwordPicking = numberic;
     }
-    else if (specicalCharConfirm) {
+    else {
       passwordPicking = specicalCharacter;
     }
-    break;
-  }
-}
-  // DECLARE a new list of `characters`
-  // var password = [];
-  // var randomPassword = "";
-
-  // generate random selection
-  // for( var i = 0; i < passwordPicking.length; i++) {
-  //   randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
-  //   password.push(randomPassword);
+    // else {
+    //   break;
+    // }
   // }
+      // DECLARE a new list of `characters`
+    //var password = [];
+    var randomPassword = "";
+    //var outputPassword = [];
+    // generate random selection
+    for( var i = 0; i < passwordLength; i++) {
+      randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
+     // outputPassword.push(randomPassword);
 
-  //RETURN `password`
-//  return password;
-
- // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+    }
+          //RETURN `password`
+          //return randomPassword;
+          //console.log(randomPassword);
+  }
+  console.log(writePassword);
+// }
