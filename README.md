@@ -30,3 +30,14 @@ THEN the password is either displayed in an alert or written to the page
 * [Deployed](https://trucn0215.github.io/TN-Password-Generator/.)
 
 ## Code Section Screenshoot
+### - variables
+![variables](img/Variables.png)
+
+### - Give Prompt and Confirms after click the button
+![comfirming](img/PromptAndConfirm.png)
+
+### - Conditions of cases happened then generate password base on User confirmed.
+![cases](img/Cases.png)
+
+### - Now Generate password base on user confirmed.
+![generate](img/RandomGenerate.png)
