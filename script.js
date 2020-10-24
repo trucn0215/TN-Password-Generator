@@ -40,30 +40,15 @@ function generatePassword(){
   numberConfirm = confirm("Click OK if Password include numbers!");
   specicalCharConfirm = confirm("Click OK if Password include special characters!");
 
-
-
-  /*while (true) {
-    // Condition for length input. If input is not valid, give ALERTs!
-    if (passwordLength = NaN) {
-      alert ("Please enter a number of Character for your Password!")
-    }
-    else if(passwordLength < 8 || passwordLength > 128) {
-    alert("Please enter number between 8 to 128!")
-    passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
-    }
-    else {
+  while (true) {
+    // NO option picked
+    if (!lowercaseConfirm && !uppercaseConfirm && !numberConfirm && !specicalCharConfirm) {
+      passwordPicking = alert("Password need at least ONE criteria!");
+      
       lowercaseConfirm = confirm("Click OK if Password include lower case!");
       uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
       numberConfirm = confirm("Click OK if Password include numbers!");
       specicalCharConfirm = confirm("Click OK if Password include special characters!");
-    }
-  //   break;
-  // }
-
-  // while (true) {
-    // NO option picked
-    if (!lowercaseConfirm && !uppercaseConfirm && !numberConfirm && !specicalCharConfirm) {
-      passwordPicking = alert("Password need at least ONE criteria!");
     }
     // 4 option picked
     else if (lowercaseConfirm && uppercaseConfirm && numberConfirm && specicalCharConfirm){
@@ -119,18 +104,19 @@ function generatePassword(){
     }
     break;
   }
+}
   // DECLARE a new list of `characters`
-  var password = [];
-  var randomPassword = "";
+  // var password = [];
+  // var randomPassword = "";
 
   // generate random selection
-  for( var i = 0; i < passwordPicking.length; i++) {
-    randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
-    password.push(randomPassword);
-  }
+  // for( var i = 0; i < passwordPicking.length; i++) {
+  //   randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
+  //   password.push(randomPassword);
+  // }
 
   //RETURN `password`
-password; */
-}
+//  return password;
+
  // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
