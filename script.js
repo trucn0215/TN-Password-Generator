@@ -11,10 +11,10 @@ function writePassword() {
 }
 
   //create variables
-  var numberic = "0123456789";
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var specicalCharacter = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  var numberic = ["0","1","2","3","4","5","6","7","8","9"];
+  var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var specicalCharacter = ["!","\\","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~","\""];
   
   // Prompt the user for a `passwordLength`
 
@@ -24,13 +24,25 @@ function writePassword() {
   var numberConfirm;
   var specicalCharConfirm;
 
-  var passwordPicking;
+  var passwordPicking= "";
 
 function generatePassword(){
-  console.log (generatePassword);
-  var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
 
-  while (true) {
+  var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
+  
+  while (passwordLength < 8 || passwordLength > 128) {
+    alert ("Please enter a number of Character for your Password!");
+    passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
+  }
+
+  lowercaseConfirm = confirm("Click OK if Password include lower case!");
+  uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
+  numberConfirm = confirm("Click OK if Password include numbers!");
+  specicalCharConfirm = confirm("Click OK if Password include special characters!");
+
+
+
+  /*while (true) {
     // Condition for length input. If input is not valid, give ALERTs!
     if (passwordLength = NaN) {
       alert ("Please enter a number of Character for your Password!")
@@ -112,13 +124,13 @@ function generatePassword(){
   var randomPassword = "";
 
   // generate random selection
-  for( var i = 0; i < passwordPicking; i++) {
+  for( var i = 0; i < passwordPicking.length; i++) {
     randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
     password.push(randomPassword);
   }
-}
-  //RETURN `password`
- // return password;
 
+  //RETURN `password`
+password; */
+}
  // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
