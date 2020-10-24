@@ -20,7 +20,8 @@ function writePassword() {
   var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var specicalCharacter = ["!","\\","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~","\""];
-  var passwordPicking = [];
+  //var passwordPicking = [];
+  var passwordLength = "";
 
 function generatePassword(){
 
@@ -29,6 +30,7 @@ function generatePassword(){
   var uppercaseConfirm;
   var numberConfirm;
   var specicalCharConfirm;
+
 
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   
@@ -105,23 +107,16 @@ function generatePassword(){
     else {
       passwordPicking = specicalCharacter;
     }
-    // else {
-    //   break;
-    // }
-  // }
-      // DECLARE a new list of `characters`
-    //var password = [];
+
+    // DECLARE a new list of `characters`
     var randomPassword = "";
-    //var outputPassword = [];
+
     // generate random selection
     for( var i = 0; i < passwordLength; i++) {
-      randomPassword = passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
-     // outputPassword.push(randomPassword);
-
+      randomPassword += passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
+      console.log(randomPassword);
     }
-          //RETURN `password`
-          //return randomPassword;
-          //console.log(randomPassword);
+    
+    //RETURN `password`
+    return randomPassword;
   }
-  console.log(writePassword);
-// }
