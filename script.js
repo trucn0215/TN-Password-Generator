@@ -13,14 +13,12 @@ function writePassword() {
   passwordText.value = password;
 }
 
-//console.log(writePassword);
-
   //create variables
   var numberic = ["0","1","2","3","4","5","6","7","8","9"];
   var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var specicalCharacter = ["!","\\","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~","\""];
-  //var passwordPicking = [];
+ 
   var passwordLength = "";
 
 function generatePassword(){
@@ -31,7 +29,6 @@ function generatePassword(){
   var numberConfirm;
   var specicalCharConfirm;
 
-
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   
   while (passwordLength < 8 || passwordLength > 128) {
@@ -39,13 +36,13 @@ function generatePassword(){
     passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   }
 
+  // Confirmation
   lowercaseConfirm = confirm("Click OK if Password include lower case!");
   uppercaseConfirm = confirm("Click OK if Password include UPPER case!");
   numberConfirm = confirm("Click OK if Password include numbers!");
   specicalCharConfirm = confirm("Click OK if Password include special characters!");
 
-  // while (true) {
-
+  //Confirming user pick criterias that they want password should included
     // NO option picked
     if (!lowercaseConfirm && !uppercaseConfirm && !numberConfirm && !specicalCharConfirm) {
       passwordPicking = alert("Password need at least ONE criteria!");
@@ -116,7 +113,7 @@ function generatePassword(){
       randomPassword += passwordPicking[Math.floor(Math.random() * passwordPicking.length)];
       console.log(randomPassword);
     }
-    
+
     //RETURN `password`
     return randomPassword;
   }
