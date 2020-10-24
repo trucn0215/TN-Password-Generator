@@ -19,8 +19,6 @@ function writePassword() {
   var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var specicalCharacter = ["!","\\","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~","\""];
  
-  var passwordLength = "";
-
 function generatePassword(){
 
   // Comfirming variables
@@ -28,6 +26,8 @@ function generatePassword(){
   var uppercaseConfirm;
   var numberConfirm;
   var specicalCharConfirm;
+  
+  var passwordLength = "";
 
   var passwordLength = parseInt(prompt("How many characters for your password? Enter a number between 8 to 128"));
   
